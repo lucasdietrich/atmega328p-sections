@@ -18,7 +18,12 @@ This simple LED toggle example shows
 - .noinit section
     - `int flag __attribute__ ((section (".noinit")));`
 
-- add user sections
+- add user sections :
+    - Interesting topic : https://www.avrfreaks.net/comment/1854541
+    - create own linker script that contains this section, avr-gcc option example  `-Tcopyavr5.x`
+    - create our own orphan section and locate it with `--section-start` : https://www.avrfreaks.net/comment/1854541#comment-1854541
+
+- [Extra Linker Flags without -Wl, prefix](https://docs.platformio.org/en/latest/projectconf/advanced_scripting.html#extra-linker-flags-without-wl-prefix)
 
 ## Notes
 

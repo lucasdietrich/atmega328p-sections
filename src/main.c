@@ -6,13 +6,11 @@
 #include "ledc.h"
 #include "uart.h"
 
-// use variables defined in linker script
+// use symbols defined in linker script
 extern uint8_t __noinit_start;
 extern uint8_t __noinit_end;
 
-
-// __init section
-
+// __init ?
 uint16_t init_flag __attribute__ ((section (".noinit"))); // no init symbol
 
 // naked remove "ret" instruction, compile as pure instructions
@@ -53,6 +51,27 @@ static const uint8_t prog_mem_reference[] PROGMEM = {
 // convert with https://tomeko.net/online_tools/cpp_text_escape.php?lang=en
 static const uint8_t rodata[] __attribute__ ((section (".rodata"))) = "RODATA\n";
 
+// define known sized structures
+// size = 3B
+typedef struct {
+    uint8_t a;
+    uint16_t b;
+} mys_t;
+
+// section .customramsection must be 3*3B = 9B long
+// use of linker script 
+mys_t A __attribute__ ((section (".customramsection")));
+mys_t B __attribute__ ((section (".customramsection")));
+mys_t C __attribute__ ((section (".customramsection")));
+
+extern uint8_t __customramsection_start;
+extern uint8_t __customramsection_end;
+
+void usart_printf(const char * const text)
+{
+    usart_send(text, strlen(text));
+}
+
 int main(void)
 {
     usart_init();
@@ -74,17 +93,34 @@ int main(void)
         usart_transmit(rodata[i]);
     }
 
-    usart_send("\n__noinit_start : ", strlen("\n__noinit_start : "));
+    usart_printf("\n__customramsection_start : ");
+    usart_hex16((uint16_t) &__customramsection_start);
+
+    usart_printf("\n__customramsection_end : ");
+    usart_hex16((uint16_t) &__customramsection_end);
+
+    usart_printf("\n.customramsection size : ");
+    usart_hex16((uint16_t) &__customramsection_end - (uint16_t) &__customramsection_start);
+
+    usart_printf("\n__noinit_start : ");
     usart_hex16((uint16_t) &__noinit_start);
 
-    usart_send("\n__noinit_end : ", strlen("\n__noinit_end : "));
+    usart_printf("\n__noinit_end : ");
     usart_hex16((uint16_t) &__noinit_end);
 
-    usart_send("\n__noinit size : ", strlen("\n__noinit size : "));
+    usart_printf("\n.noinit size : ");
     usart_hex16((uint16_t) &__noinit_end - (uint16_t) &__noinit_start);
 
-    usart_send("\ninit_anyway_haha > noinit_flag : ", strlen("\ninit_anyway_haha > noinit_flag : "));
+    usart_printf("\ninit_anyway_haha > noinit_flag : "); 
     usart_hex16(noinit_flag);
+
+    usart_printf("\nA, B, C addr : ");
+    usart_hex16((uint16_t) &A);
+    usart_transmit(' ');
+    usart_hex16((uint16_t) &B);
+    usart_transmit(' ');
+    usart_hex16((uint16_t) &C);
+    usart_transmit(' ');
 
     _delay_ms(2000);
 
