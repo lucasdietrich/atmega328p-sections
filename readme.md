@@ -21,7 +21,16 @@ This simple LED toggle example shows
 - add user sections :
     - Interesting topic : https://www.avrfreaks.net/comment/1854541
     - create own linker script that contains this section, avr-gcc option example  `-Tcopyavr5.x`
-    - create our own orphan section and locate it with `--section-start` : https://www.avrfreaks.net/comment/1854541#comment-1854541
+    - create our own orphan section and locate it with `--section-start` : https://www.avrfreaks.net/comment/1854541#comment-185454
+
+- add section at specific address :
+    - // https://www.avrfreaks.net/comment/935518#comment-935518
+    -  if collision, we have the error :
+
+```c:/users/ldade/.platformio/packages/toolchain-atmelavr/bin/../lib/gcc/avr/7.3.0/../../../../avr/bin/ld.exe: section .mycrc_col loaded at [00001bff,00001c00] overlaps section .mycrc loaded at [00001bfe,00001bff]
+collect2.exe: error: ld returned 1 exit status
+*** [.pio\build\pro16MHzatmega328\firmware.elf] Error 1
+```
 
 - [Extra Linker Flags without -Wl, prefix](https://docs.platformio.org/en/latest/projectconf/advanced_scripting.html#extra-linker-flags-without-wl-prefix)
 

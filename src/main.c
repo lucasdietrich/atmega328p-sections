@@ -66,6 +66,13 @@ static const uint8_t rodata[] __attribute__ ((section (".rodata"))) = "RODATA\n"
 // https://www.avrfreaks.net/comment/935518#comment-935518
 __attribute__((used, section(".mycrc"))) uint16_t crc = 0x1234;
 
+#if __SECTION_DEMO_COLLISION__
+
+// try collision here
+__attribute__((used, section(".mycrc_col"))) uint16_t crc_collision = 0xAAAA;
+
+#endif
+
 /*___________________________________________________________________________*/
 
 // define known sized structures
@@ -152,6 +159,18 @@ int main(void)
     usart_hex16(crc_copy);
     usart_printf(" = ");
     usart_hex16(crc_copy2);
+
+#if __SECTION_DEMO_COLLISION__
+    crc_copy = pgm_read_word(&crc_collision);
+    crc_copy2 = pgm_read_word((uint16_t *) 0x1BFF);
+    usart_printf("\n rc_copy at adress 0x1BFF = 0x"); 
+    usart_hex16((uint16_t) &crc);
+
+    usart_printf("\n");
+    usart_hex16(crc_copy);
+    usart_printf(" = ");
+    usart_hex16(crc_copy2);
+#endif
 
 /*___________________________________________________________________________*/
 
