@@ -75,7 +75,7 @@
 000000ac T init_anyway_haha
 0000008e T k_thread_sp_init
 0000013c T main
-00005000 D myconfig_addr
+000077f8 D myconfig_addr
 00000334 T myconfig_start
 0080029b b noinit_flag
 0000006f t prog_mem_reference

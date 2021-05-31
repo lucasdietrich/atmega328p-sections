@@ -298,10 +298,10 @@ Disassembly of section .text:
  2bc:	8d e5       	ldi	r24, 0x5D	; 93
  2be:	92 e0       	ldi	r25, 0x02	; 2
  2c0:	0e 94 86 00 	call	0x10c	; 0x10c <usart_printf>
- 2c4:	c0 e0       	ldi	r28, 0x00	; 0
- 2c6:	d0 e5       	ldi	r29, 0x50	; 80
- 2c8:	08 e0       	ldi	r16, 0x08	; 8
- 2ca:	10 e5       	ldi	r17, 0x50	; 80
+ 2c4:	c8 ef       	ldi	r28, 0xF8	; 248
+ 2c6:	d7 e7       	ldi	r29, 0x77	; 119
+ 2c8:	00 e0       	ldi	r16, 0x00	; 0
+ 2ca:	18 e7       	ldi	r17, 0x78	; 120
  2cc:	fe 01       	movw	r30, r28
  2ce:	84 91       	lpm	r24, Z
  2d0:	0e 94 69 00 	call	0xd2	; 0xd2 <usart_hex>

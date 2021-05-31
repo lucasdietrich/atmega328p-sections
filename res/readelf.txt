@@ -33,7 +33,7 @@ Section Headers:
   [ 9] .debug_line       PROGBITS        00000000 00137c 000114 00      0   0  1
   [10] .debug_str        PROGBITS        00000000 001490 000208 00      0   0  1
   [11] .mycrc            PROGBITS        00001bfe 0005ab 000002 00  WA  0   0  1
-  [12] .myconfig_addr    PROGBITS        00005000 0005ad 000008 00  WA  0   0  1
+  [12] .myconfig_addr    PROGBITS        000077f8 0005ad 000008 00  WA  0   0  1
   [13] .shstrtab         STRTAB          00000000 00218c 0000a7 00      0   0  1
   [14] .symtab           SYMTAB          00000000 001698 000660 10     15  32  4
   [15] .strtab           STRTAB          00000000 001cf8 000494 00      0   0  1
@@ -49,7 +49,7 @@ Program Headers:
   LOAD           0x0000d4 0x00000000 0x00000000 0x0033c 0x0033c R E 0x2
   LOAD           0x000410 0x00800100 0x0000033c 0x0019b 0x0019b RW  0x1
   LOAD           0x0005ab 0x00001bfe 0x00001bfe 0x00002 0x00002 RW  0x1
-  LOAD           0x0005ad 0x00005000 0x00005000 0x00008 0x00008 RW  0x1
+  LOAD           0x0005ad 0x000077f8 0x000077f8 0x00008 0x00008 RW  0x1
   LOAD           0x0005b5 0x0080029b 0x0080029b 0x00000 0x00002 RW  0x1
 
  Section to Segment mapping:
@@ -80,7 +80,7 @@ Symbol table '.symtab' contains 102 entries:
      9: 00000000     0 SECTION LOCAL  DEFAULT    9 
     10: 00000000     0 SECTION LOCAL  DEFAULT   10 
     11: 00001bfe     0 SECTION LOCAL  DEFAULT   11 
-    12: 00005000     0 SECTION LOCAL  DEFAULT   12 
+    12: 000077f8     0 SECTION LOCAL  DEFAULT   12 
     13: 00000000     0 FILE    LOCAL  DEFAULT  ABS 
     14: 0000003e     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_H__
     15: 0000003d     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_L__
@@ -169,7 +169,7 @@ Symbol table '.symtab' contains 102 entries:
     98: 00000003     0 NOTYPE  GLOBAL DEFAULT  ABS __FUSE_REGION_LENGTH__
     99: 00020000     0 NOTYPE  GLOBAL DEFAULT  ABS __TEXT_REGION_LENGTH__
    100: 000000c0     0 NOTYPE  WEAK   DEFAULT    2 __vector_20
-   101: 00005000     0 NOTYPE  GLOBAL DEFAULT   12 myconfig_addr
+   101: 000077f8     0 NOTYPE  GLOBAL DEFAULT   12 myconfig_addr
 
 No version information found in this file.
 
