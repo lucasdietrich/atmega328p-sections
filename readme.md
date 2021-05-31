@@ -32,11 +32,35 @@ collect2.exe: error: ld returned 1 exit status
 *** [.pio\build\pro16MHzatmega328\firmware.elf] Error 1
 ```
 
-- link binary to program : 
-    - install Hex editor
-    - `avr-objcopy` documentation : http://transit.iut2.upmf-grenoble.fr/cgi-bin/man/man2html?objcopy+1
+- Link binary to program : 
+    - Flash, ram, custom section, specific address, symbol from linker/obj, object manipulation
+    - references + tools :
+        - install Hex editor
+        - `avr-objcopy` documentation : http://transit.iut2.upmf-grenoble.fr/cgi-bin/man/man2html?objcopy+1
 
-- [Extra Linker Flags without -Wl, prefix](https://docs.platformio.org/en/latest/projectconf/advanced_scripting.html#extra-linker-flags-without-wl-prefix)
+- [Extra Linker Flags without -Wl, prefix](https://docs.platformio.org/en/latest/projectconf/
+advanced_scripting.html#extra-linker-flags-without-wl-prefix)
+
+## Output
+
+```
+Hello World!RODATA
+
+__customramsection_start : 0292
+__customramsection_end : 029B
+.customramsection size : 0009
+__noinit_start : 029B
+__noinit_end : 029D
+.noinit size : 0002
+init_anyway_haha > noinit_flag : ADEC
+ rc_copy at adress 0x1BFE = 0x1BFE
+1234 = 1234
+A, B, C addr : 0298 0295 0292
+_binary_bin_binary_bin_start = ADEC101122334455
+stringtxt = String
+ PROGMEM section .myconfig 'myconfig_start' = ADEC101122334455
+ PROGMEM section .myconfig_addr 'myconfig_addr' = ADEC101122334455
+```
 
 ## Notes
 
