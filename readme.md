@@ -32,6 +32,10 @@ collect2.exe: error: ld returned 1 exit status
 *** [.pio\build\pro16MHzatmega328\firmware.elf] Error 1
 ```
 
+- link binary to program : 
+    - install Hex editor
+    - `avr-objcopy` documentation : http://transit.iut2.upmf-grenoble.fr/cgi-bin/man/man2html?objcopy+1
+
 - [Extra Linker Flags without -Wl, prefix](https://docs.platformio.org/en/latest/projectconf/advanced_scripting.html#extra-linker-flags-without-wl-prefix)
 
 ## Notes
@@ -106,6 +110,12 @@ Disassembly of section .init2:
 
 ```
 avr-readelf -a .pio/build/pro16MHzatmega328/firmware.elf > readelf.txt
+```
+
+Readelf flags :
+
+```
+W (write), A (alloc), X (execute), M (merge), S (strings) I (info), L (link order), G (group), T (TLS), E (exclude), x (unknown) O (extra OS processing required) o (OS specific), p (processor specific)
 ```
 
 ### Disassembly:

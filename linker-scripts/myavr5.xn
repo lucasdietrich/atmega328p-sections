@@ -163,6 +163,11 @@ SECTIONS
     *(.fini0)  /* Infinite loop after program termination.  */
     KEEP (*(.fini0))
      _etext = . ;
+
+    PROVIDE (myconfig_start = .);
+    *(.myconfig)
+    KEEP(SORT(*)(.myconfig))
+    PROVIDE (myconfig_end = .);
   }  > text
   .data          :
   {

@@ -8,15 +8,15 @@ PROJECT_LOCATION='/mnt/d/Home/ProjetsRecherche/Embedded/ATmega328p-sections'
 
 cd "$PROJECT_LOCATION"
 
-# avr-nm .pio/build/pro16MHzatmega328/src/main.c.o
+# avr-nm .pio/build/SectionDemo/src/main.c.o
 
-avr-objdump -d .pio/build/pro16MHzatmega328/firmware.elf > res/disassembly.s
+avr-objdump -d .pio/build/SectionDemo/firmware.elf > res/disassembly.s
 
-avr-readelf -a .pio/build/pro16MHzatmega328/firmware.elf > res/readelf.txt
+avr-readelf -a .pio/build/SectionDemo/firmware.elf > res/readelf.txt
 
-avr-nm .pio/build/pro16MHzatmega328/firmware.elf > res/nm.txt
+avr-nm .pio/build/SectionDemo/firmware.elf > res/nm.txt
 
 echo "OK"
-echo "avr-objdump -d .pio/build/pro16MHzatmega328/firmware.elf > res/disassembly.s"
-echo "avr-readelf -a .pio/build/pro16MHzatmega328/firmware.elf > res/readelf.txt"
-echo "avr-nm .pio/build/pro16MHzatmega328/firmware.elf > res/nm.txt"
+echo "avr-objdump -d .pio/build/SectionDemo/firmware.elf > res/disassembly.s"
+echo "avr-readelf -a .pio/build/SectionDemo/firmware.elf > res/readelf.txt"
+echo "avr-nm .pio/build/SectionDemo/firmware.elf > res/nm.txt"

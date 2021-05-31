@@ -51,7 +51,7 @@ void init_anyway_haha(void)
 /*___________________________________________________________________________*/
 
 // convert with https://tomeko.net/online_tools/cpp_text_escape.php?lang=en
-static const uint8_t prog_mem_reference[] PROGMEM = {
+const uint8_t prog_mem_reference[] PROGMEM = {
     #include "small.txt"
 };
 
@@ -90,6 +90,28 @@ mys_t C __attribute__ ((section (".customramsection")));
 
 extern uint8_t __customramsection_start;
 extern uint8_t __customramsection_end;
+
+/*___________________________________________________________________________*/
+
+// const char binary_data[8] PROGMEM = {0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88};
+
+extern const char _binary_bin_binary_bin_start[8];
+
+/*___________________________________________________________________________*/
+
+// with rename
+// https://stackoverflow.com/questions/15594988/objcopy-prepends-directory-pathname-to-symbol-name
+
+extern const char stringtxt;
+
+/*___________________________________________________________________________*/
+
+// in prog memory
+extern const char myconfig_start[8];
+
+// in prog memory
+extern const char myconfig_addr[8];
+
 
 /*___________________________________________________________________________*/
 
@@ -181,6 +203,37 @@ int main(void)
     usart_transmit(' ');
     usart_hex16((uint16_t) &C);
     usart_transmit(' ');
+
+/*___________________________________________________________________________*/
+
+    usart_printf("\n_binary_bin_binary_bin_start = ");
+
+    for(uint_fast8_t i = 0; i < 8; i++)
+    {
+        usart_hex(_binary_bin_binary_bin_start[i]);
+    }
+
+    usart_printf("\nstringtxt = ");
+
+    usart_print_p(&stringtxt);
+
+    usart_printf("\n PROGMEM section .myconfig 'myconfig_start' = ");
+
+    for(uint_fast8_t i = 0; i < 8; i++)
+    {
+        usart_hex(pgm_read_byte(&myconfig_start[i]));
+    }
+
+    usart_printf("\n PROGMEM section .myconfig_addr 'myconfig_addr' = ");
+
+    for(uint_fast8_t i = 0; i < 8; i++)
+    {
+        usart_hex(pgm_read_byte(&myconfig_addr[i]));
+    }
+
+    usart_transmit('\n');
+
+    
 
 /*___________________________________________________________________________*/
 

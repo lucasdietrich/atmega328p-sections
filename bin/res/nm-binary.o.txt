@@ -1,0 +1,3 @@
+00000008 D _binary_bin_binary_bin_end
+00000008 A _binary_bin_binary_bin_size
+00000000 D _binary_bin_binary_bin_start
