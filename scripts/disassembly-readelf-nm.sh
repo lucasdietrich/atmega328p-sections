@@ -4,7 +4,7 @@
 set -e 
 set -o pipefail
 
-PROJECT_LOCATION='/mnt/c/Users/ldade/Documents/ProjetsRecherche/Embedded/ATmega328p-sections'
+PROJECT_LOCATION='/mnt/d/Home/ProjetsRecherche/Embedded/ATmega328p-sections'
 
 cd "$PROJECT_LOCATION"
 

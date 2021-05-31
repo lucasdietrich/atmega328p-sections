@@ -62,22 +62,22 @@ Disassembly of section .text:
   90:	11 e0       	ldi	r17, 0x01	; 1
   92:	a0 e0       	ldi	r26, 0x00	; 0
   94:	b1 e0       	ldi	r27, 0x01	; 1
-  96:	ec e6       	ldi	r30, 0x6C	; 108
+  96:	e8 ea       	ldi	r30, 0xA8	; 168
   98:	f2 e0       	ldi	r31, 0x02	; 2
   9a:	02 c0       	rjmp	.+4      	; 0xa0 <__do_copy_data+0x10>
   9c:	05 90       	lpm	r0, Z+
   9e:	0d 92       	st	X+, r0
-  a0:	ad 3d       	cpi	r26, 0xDD	; 221
+  a0:	ad 3f       	cpi	r26, 0xFD	; 253
   a2:	b1 07       	cpc	r27, r17
   a4:	d9 f7       	brne	.-10     	; 0x9c <__do_copy_data+0xc>
 
 000000a6 <init_anyway_haha>:
   a6:	8c ee       	ldi	r24, 0xEC	; 236
   a8:	9d ea       	ldi	r25, 0xAD	; 173
-  aa:	90 93 de 01 	sts	0x01DE, r25	; 0x8001de <__customramsection_end+0x1>
-  ae:	80 93 dd 01 	sts	0x01DD, r24	; 0x8001dd <__customramsection_end>
+  aa:	90 93 fe 01 	sts	0x01FE, r25	; 0x8001fe <__customramsection_end+0x1>
+  ae:	80 93 fd 01 	sts	0x01FD, r24	; 0x8001fd <__customramsection_end>
   b2:	0e 94 a7 00 	call	0x14e	; 0x14e <main>
-  b6:	0c 94 34 01 	jmp	0x268	; 0x268 <_exit>
+  b6:	0c 94 52 01 	jmp	0x2a4	; 0x2a4 <_exit>
 
 000000ba <__bad_interrupt>:
   ba:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -185,92 +185,116 @@ Disassembly of section .text:
  18e:	88 e1       	ldi	r24, 0x18	; 24
  190:	91 e0       	ldi	r25, 0x01	; 1
  192:	0e 94 86 00 	call	0x10c	; 0x10c <usart_printf>
- 196:	84 ed       	ldi	r24, 0xD4	; 212
+ 196:	84 ef       	ldi	r24, 0xF4	; 244
  198:	91 e0       	ldi	r25, 0x01	; 1
  19a:	0e 94 7d 00 	call	0xfa	; 0xfa <usart_hex16>
  19e:	85 e3       	ldi	r24, 0x35	; 53
  1a0:	91 e0       	ldi	r25, 0x01	; 1
  1a2:	0e 94 86 00 	call	0x10c	; 0x10c <usart_printf>
- 1a6:	8d ed       	ldi	r24, 0xDD	; 221
+ 1a6:	8d ef       	ldi	r24, 0xFD	; 253
  1a8:	91 e0       	ldi	r25, 0x01	; 1
  1aa:	0e 94 7d 00 	call	0xfa	; 0xfa <usart_hex16>
  1ae:	80 e5       	ldi	r24, 0x50	; 80
  1b0:	91 e0       	ldi	r25, 0x01	; 1
  1b2:	0e 94 86 00 	call	0x10c	; 0x10c <usart_printf>
- 1b6:	8d ed       	ldi	r24, 0xDD	; 221
+ 1b6:	8d ef       	ldi	r24, 0xFD	; 253
  1b8:	91 e0       	ldi	r25, 0x01	; 1
- 1ba:	84 5d       	subi	r24, 0xD4	; 212
+ 1ba:	84 5f       	subi	r24, 0xF4	; 244
  1bc:	91 40       	sbci	r25, 0x01	; 1
  1be:	0e 94 7d 00 	call	0xfa	; 0xfa <usart_hex16>
  1c2:	8b e6       	ldi	r24, 0x6B	; 107
  1c4:	91 e0       	ldi	r25, 0x01	; 1
  1c6:	0e 94 86 00 	call	0x10c	; 0x10c <usart_printf>
- 1ca:	8d ed       	ldi	r24, 0xDD	; 221
+ 1ca:	8d ef       	ldi	r24, 0xFD	; 253
  1cc:	91 e0       	ldi	r25, 0x01	; 1
  1ce:	0e 94 7d 00 	call	0xfa	; 0xfa <usart_hex16>
  1d2:	8e e7       	ldi	r24, 0x7E	; 126
  1d4:	91 e0       	ldi	r25, 0x01	; 1
  1d6:	0e 94 86 00 	call	0x10c	; 0x10c <usart_printf>
- 1da:	8f ed       	ldi	r24, 0xDF	; 223
+ 1da:	8f ef       	ldi	r24, 0xFF	; 255
  1dc:	91 e0       	ldi	r25, 0x01	; 1
  1de:	0e 94 7d 00 	call	0xfa	; 0xfa <usart_hex16>
  1e2:	8f e8       	ldi	r24, 0x8F	; 143
  1e4:	91 e0       	ldi	r25, 0x01	; 1
  1e6:	0e 94 86 00 	call	0x10c	; 0x10c <usart_printf>
- 1ea:	8f ed       	ldi	r24, 0xDF	; 223
+ 1ea:	8f ef       	ldi	r24, 0xFF	; 255
  1ec:	91 e0       	ldi	r25, 0x01	; 1
- 1ee:	8d 5d       	subi	r24, 0xDD	; 221
+ 1ee:	8d 5f       	subi	r24, 0xFD	; 253
  1f0:	91 40       	sbci	r25, 0x01	; 1
  1f2:	0e 94 7d 00 	call	0xfa	; 0xfa <usart_hex16>
  1f6:	80 ea       	ldi	r24, 0xA0	; 160
  1f8:	91 e0       	ldi	r25, 0x01	; 1
  1fa:	0e 94 86 00 	call	0x10c	; 0x10c <usart_printf>
- 1fe:	80 91 dd 01 	lds	r24, 0x01DD	; 0x8001dd <__customramsection_end>
- 202:	90 91 de 01 	lds	r25, 0x01DE	; 0x8001de <__customramsection_end+0x1>
+ 1fe:	80 91 fd 01 	lds	r24, 0x01FD	; 0x8001fd <__customramsection_end>
+ 202:	90 91 fe 01 	lds	r25, 0x01FE	; 0x8001fe <__customramsection_end+0x1>
  206:	0e 94 7d 00 	call	0xfa	; 0xfa <usart_hex16>
- 20a:	83 ec       	ldi	r24, 0xC3	; 195
- 20c:	91 e0       	ldi	r25, 0x01	; 1
- 20e:	0e 94 86 00 	call	0x10c	; 0x10c <usart_printf>
- 212:	8a ed       	ldi	r24, 0xDA	; 218
- 214:	91 e0       	ldi	r25, 0x01	; 1
- 216:	0e 94 7d 00 	call	0xfa	; 0xfa <usart_hex16>
- 21a:	80 e2       	ldi	r24, 0x20	; 32
- 21c:	0e 94 5f 00 	call	0xbe	; 0xbe <usart_transmit>
- 220:	87 ed       	ldi	r24, 0xD7	; 215
- 222:	91 e0       	ldi	r25, 0x01	; 1
- 224:	0e 94 7d 00 	call	0xfa	; 0xfa <usart_hex16>
- 228:	80 e2       	ldi	r24, 0x20	; 32
- 22a:	0e 94 5f 00 	call	0xbe	; 0xbe <usart_transmit>
- 22e:	84 ed       	ldi	r24, 0xD4	; 212
- 230:	91 e0       	ldi	r25, 0x01	; 1
- 232:	0e 94 7d 00 	call	0xfa	; 0xfa <usart_hex16>
- 236:	80 e2       	ldi	r24, 0x20	; 32
- 238:	0e 94 5f 00 	call	0xbe	; 0xbe <usart_transmit>
- 23c:	2f ef       	ldi	r18, 0xFF	; 255
- 23e:	87 ea       	ldi	r24, 0xA7	; 167
- 240:	91 e6       	ldi	r25, 0x61	; 97
- 242:	21 50       	subi	r18, 0x01	; 1
- 244:	80 40       	sbci	r24, 0x00	; 0
- 246:	90 40       	sbci	r25, 0x00	; 0
- 248:	e1 f7       	brne	.-8      	; 0x242 <main+0xf4>
- 24a:	00 c0       	rjmp	.+0      	; 0x24c <main+0xfe>
- 24c:	00 00       	nop
- 24e:	ef ef       	ldi	r30, 0xFF	; 255
- 250:	f3 ed       	ldi	r31, 0xD3	; 211
- 252:	20 e3       	ldi	r18, 0x30	; 48
- 254:	e1 50       	subi	r30, 0x01	; 1
- 256:	f0 40       	sbci	r31, 0x00	; 0
- 258:	20 40       	sbci	r18, 0x00	; 0
- 25a:	e1 f7       	brne	.-8      	; 0x254 <main+0x106>
- 25c:	00 c0       	rjmp	.+0      	; 0x25e <main+0x110>
- 25e:	00 00       	nop
- 260:	85 b1       	in	r24, 0x05	; 5
- 262:	80 95       	com	r24
- 264:	85 b9       	out	0x05, r24	; 5
- 266:	f3 cf       	rjmp	.-26     	; 0x24e <main+0x100>
+ 20a:	ee ef       	ldi	r30, 0xFE	; 254
+ 20c:	fb e1       	ldi	r31, 0x1B	; 27
+ 20e:	05 91       	lpm	r16, Z+
+ 210:	14 91       	lpm	r17, Z
+ 212:	ee ef       	ldi	r30, 0xFE	; 254
+ 214:	fb e1       	ldi	r31, 0x1B	; 27
+ 216:	c5 91       	lpm	r28, Z+
+ 218:	d4 91       	lpm	r29, Z
+ 21a:	83 ec       	ldi	r24, 0xC3	; 195
+ 21c:	91 e0       	ldi	r25, 0x01	; 1
+ 21e:	0e 94 86 00 	call	0x10c	; 0x10c <usart_printf>
+ 222:	8e ef       	ldi	r24, 0xFE	; 254
+ 224:	9b e1       	ldi	r25, 0x1B	; 27
+ 226:	0e 94 7d 00 	call	0xfa	; 0xfa <usart_hex16>
+ 22a:	81 ee       	ldi	r24, 0xE1	; 225
+ 22c:	91 e0       	ldi	r25, 0x01	; 1
+ 22e:	0e 94 86 00 	call	0x10c	; 0x10c <usart_printf>
+ 232:	c8 01       	movw	r24, r16
+ 234:	0e 94 7d 00 	call	0xfa	; 0xfa <usart_hex16>
+ 238:	8d ed       	ldi	r24, 0xDD	; 221
+ 23a:	91 e0       	ldi	r25, 0x01	; 1
+ 23c:	0e 94 86 00 	call	0x10c	; 0x10c <usart_printf>
+ 240:	ce 01       	movw	r24, r28
+ 242:	0e 94 7d 00 	call	0xfa	; 0xfa <usart_hex16>
+ 246:	83 ee       	ldi	r24, 0xE3	; 227
+ 248:	91 e0       	ldi	r25, 0x01	; 1
+ 24a:	0e 94 86 00 	call	0x10c	; 0x10c <usart_printf>
+ 24e:	8a ef       	ldi	r24, 0xFA	; 250
+ 250:	91 e0       	ldi	r25, 0x01	; 1
+ 252:	0e 94 7d 00 	call	0xfa	; 0xfa <usart_hex16>
+ 256:	80 e2       	ldi	r24, 0x20	; 32
+ 258:	0e 94 5f 00 	call	0xbe	; 0xbe <usart_transmit>
+ 25c:	87 ef       	ldi	r24, 0xF7	; 247
+ 25e:	91 e0       	ldi	r25, 0x01	; 1
+ 260:	0e 94 7d 00 	call	0xfa	; 0xfa <usart_hex16>
+ 264:	80 e2       	ldi	r24, 0x20	; 32
+ 266:	0e 94 5f 00 	call	0xbe	; 0xbe <usart_transmit>
+ 26a:	84 ef       	ldi	r24, 0xF4	; 244
+ 26c:	91 e0       	ldi	r25, 0x01	; 1
+ 26e:	0e 94 7d 00 	call	0xfa	; 0xfa <usart_hex16>
+ 272:	80 e2       	ldi	r24, 0x20	; 32
+ 274:	0e 94 5f 00 	call	0xbe	; 0xbe <usart_transmit>
+ 278:	2f ef       	ldi	r18, 0xFF	; 255
+ 27a:	87 ea       	ldi	r24, 0xA7	; 167
+ 27c:	91 e6       	ldi	r25, 0x61	; 97
+ 27e:	21 50       	subi	r18, 0x01	; 1
+ 280:	80 40       	sbci	r24, 0x00	; 0
+ 282:	90 40       	sbci	r25, 0x00	; 0
+ 284:	e1 f7       	brne	.-8      	; 0x27e <main+0x130>
+ 286:	00 c0       	rjmp	.+0      	; 0x288 <main+0x13a>
+ 288:	00 00       	nop
+ 28a:	ef ef       	ldi	r30, 0xFF	; 255
+ 28c:	f3 ed       	ldi	r31, 0xD3	; 211
+ 28e:	20 e3       	ldi	r18, 0x30	; 48
+ 290:	e1 50       	subi	r30, 0x01	; 1
+ 292:	f0 40       	sbci	r31, 0x00	; 0
+ 294:	20 40       	sbci	r18, 0x00	; 0
+ 296:	e1 f7       	brne	.-8      	; 0x290 <main+0x142>
+ 298:	00 c0       	rjmp	.+0      	; 0x29a <main+0x14c>
+ 29a:	00 00       	nop
+ 29c:	85 b1       	in	r24, 0x05	; 5
+ 29e:	80 95       	com	r24
+ 2a0:	85 b9       	out	0x05, r24	; 5
+ 2a2:	f3 cf       	rjmp	.-26     	; 0x28a <main+0x13c>
 
-00000268 <_exit>:
- 268:	f8 94       	cli
+000002a4 <_exit>:
+ 2a4:	f8 94       	cli
 
-0000026a <__stop_program>:
- 26a:	ff cf       	rjmp	.-2      	; 0x26a <__stop_program>
+000002a6 <__stop_program>:
+ 2a6:	ff cf       	rjmp	.-2      	; 0x2a6 <__stop_program>
